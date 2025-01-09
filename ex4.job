@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#PBS -l walltime=00:10:00,nodes=1:ppn=4
+#PBS -N job7
+#PBS -q batch
+
+cd $PBS_O_WORKDIR
+
+mpirun --hostfile $PBS_NODEFILE -pernode ./omp conf1.cfg $PBS_NUM_PPN
